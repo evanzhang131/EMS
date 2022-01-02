@@ -46,7 +46,6 @@ public class MainJFrame extends javax.swing.JFrame {
         addEmpStatusLabel.setVisible(false);
         findEmpDialog.setTitle("Employee Not Found");
         findEmpDialog.pack();
-        
         fileDialog.pack();
         //menuPanel.setLayout(new GridBagLayout());
         
