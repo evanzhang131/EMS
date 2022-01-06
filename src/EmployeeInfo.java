@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.io.File;
+import javax.swing.*;
 
 public class EmployeeInfo implements Serializable {
 
@@ -11,12 +12,12 @@ public class EmployeeInfo implements Serializable {
     public String gender;
     public String workLoc;
     public double deductRate; // e.g. 0.21 for 21%
-    public File profilePic;
+    public ImageIcon profilePic;
     
     
     // CONSTRUCTORS
     
-    public EmployeeInfo(int eN, String fN, String lN, String g, String wL, double dR, File pfp) {
+    public EmployeeInfo(int eN, String fN, String lN, String g, String wL, double dR, ImageIcon pfp) {
     	empNum = eN;
     	firstName = fN;
     	lastName = lN;

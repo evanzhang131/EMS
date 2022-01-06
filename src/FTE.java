@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.io.File;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,7 +26,7 @@ public class FTE extends EmployeeInfo implements Serializable {
      * @param dR
      * @param yS
      */
-    public FTE(int eN, String fN, String lN, String g, String wL, double dR, double yS, File f) {
+    public FTE(int eN, String fN, String lN, String g, String wL, double dR, double yS, ImageIcon f) {
         super(eN, fN, lN, g, wL, dR, f);
         yearlySalary = yS;
         

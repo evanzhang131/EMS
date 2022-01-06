@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.io.File;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,7 +18,7 @@ public class PTE extends EmployeeInfo implements Serializable{
     public double hoursPerWeek;
     public double weeksPerYear;
     
-    public PTE(int eN, String fN, String lN, String g, String wL, double dR, double hW, double hPW, double wPY, File f) {
+    public PTE(int eN, String fN, String lN, String g, String wL, double dR, double hW, double hPW, double wPY, ImageIcon f) {
         super(eN, fN, lN, g, wL, dR, f);
         hourlyWage = hW;
         hoursPerWeek = hPW;
