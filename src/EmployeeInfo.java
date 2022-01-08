@@ -12,12 +12,12 @@ public class EmployeeInfo implements Serializable {
     public String gender;
     public String workLoc;
     public double deductRate; // e.g. 0.21 for 21%
-    public ImageIcon profilePic;
+    public File profilePic;
     
     
     // CONSTRUCTORS
     
-    public EmployeeInfo(int eN, String fN, String lN, String g, String wL, double dR, ImageIcon pfp) {
+    public EmployeeInfo(int eN, String fN, String lN, String g, String wL, double dR, File pfp) {
     	empNum = eN;
     	firstName = fN;
     	lastName = lN;

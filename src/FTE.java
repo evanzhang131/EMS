@@ -26,7 +26,7 @@ public class FTE extends EmployeeInfo implements Serializable {
      * @param dR
      * @param yS
      */
-    public FTE(int eN, String fN, String lN, String g, String wL, double dR, double yS, ImageIcon f) {
+    public FTE(int eN, String fN, String lN, String g, String wL, double dR, double yS, File f) {
         super(eN, fN, lN, g, wL, dR, f);
         yearlySalary = yS;
         

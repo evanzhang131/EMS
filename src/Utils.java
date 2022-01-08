@@ -24,7 +24,16 @@ public class Utils {
     private static final File EMS = join(EMS_DIR, "ems");
     private static final File IMAGES_DIR = join(EMS_DIR, "images");
     private static final File DEFAULT = join(IMAGES_DIR, "default.jpg");
+    private static final File ICON = join(IMAGES_DIR, "icon.png");
     
+    public static BufferedImage getIcon() {
+        try {
+            BufferedImage img = ImageIO.read(ICON);
+            return img;
+        } catch (IOException e) {
+            return null;
+        }
+    }
     
     public static void initFiles() {
         if (!EMS_DIR.exists()) {
@@ -38,11 +47,11 @@ public class Utils {
         }
     }
     
-    public static void drawImage(JLabel label, ImageIcon icon) {
-        label.setIcon(icon);
-    }
-    
     public static void drawImage(JLabel label, File path) {
+        if (path == null) {
+            drawDefault(label);
+            return;
+        }
         try {
             BufferedImage img = ImageIO.read(path);
             Image icon = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
