@@ -23,6 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private DefaultTableModel model;
     private File currentAddPFP;
     private File currentEditPFP;
+    private EmployeeInfo currEdit;
     private boolean addWindow; // true for add, false for edit
     
     // CONSTRUCTORS
@@ -111,6 +112,30 @@ public class MainJFrame extends javax.swing.JFrame {
         saveLoadStatus = new javax.swing.JLabel();
         saveButton1 = new javax.swing.JButton();
         searchPanel = new javax.swing.JPanel();
+        empNumLabel2 = new javax.swing.JLabel();
+        weeksYearTextField2 = new javax.swing.JTextField();
+        hoursWeekTextField2 = new javax.swing.JTextField();
+        hourlyWageTextField2 = new javax.swing.JTextField();
+        yearlySalaryTextField2 = new javax.swing.JTextField();
+        yearlySalaryLabel2 = new javax.swing.JLabel();
+        hourlyWageLabel2 = new javax.swing.JLabel();
+        hoursWeekLabel2 = new javax.swing.JLabel();
+        weeksYearLabel2 = new javax.swing.JLabel();
+        deductRateTextField2 = new javax.swing.JTextField();
+        deductRateLabel2 = new javax.swing.JLabel();
+        workLocLabel2 = new javax.swing.JLabel();
+        workLocTextField2 = new javax.swing.JTextField();
+        genderTextField2 = new javax.swing.JTextField();
+        genderLabel2 = new javax.swing.JLabel();
+        lastNameLabel2 = new javax.swing.JLabel();
+        lastNameTextField2 = new javax.swing.JTextField();
+        firstNameTextField2 = new javax.swing.JTextField();
+        firstNameLabel2 = new javax.swing.JLabel();
+        empNumTextField2 = new javax.swing.JTextField();
+        searchEmpButton = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
+        picLabel2 = new javax.swing.JLabel();
         displayPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -328,6 +353,125 @@ public class MainJFrame extends javax.swing.JFrame {
         jTabbedPane1.addTab("Menu", menuPanel);
 
         searchPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        empNumLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        empNumLabel2.setText("Employee Number");
+        empNumLabel2.setToolTipText("");
+        searchPanel.add(empNumLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        weeksYearTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchPanel.add(weeksYearTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 190, -1));
+
+        hoursWeekTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        hoursWeekTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hoursWeekTextField2ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(hoursWeekTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 190, -1));
+
+        hourlyWageTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        hourlyWageTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hourlyWageTextField2ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(hourlyWageTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 190, -1));
+
+        yearlySalaryTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchPanel.add(yearlySalaryTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 190, -1));
+
+        yearlySalaryLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        yearlySalaryLabel2.setText("Yearly Salary");
+        searchPanel.add(yearlySalaryLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
+
+        hourlyWageLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        hourlyWageLabel2.setText("Hourly Wage");
+        hourlyWageLabel2.setToolTipText("");
+        searchPanel.add(hourlyWageLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, -1, -1));
+
+        hoursWeekLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        hoursWeekLabel2.setText("Hours / Week");
+        searchPanel.add(hoursWeekLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+
+        weeksYearLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        weeksYearLabel2.setText("Weeks / Year");
+        searchPanel.add(weeksYearLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
+
+        deductRateTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchPanel.add(deductRateTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 190, -1));
+
+        deductRateLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        deductRateLabel2.setText("Deduct Rate");
+        searchPanel.add(deductRateLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
+
+        workLocLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        workLocLabel2.setText("Work Location");
+        searchPanel.add(workLocLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
+
+        workLocTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        workLocTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workLocTextField2ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(workLocTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 190, -1));
+
+        genderTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchPanel.add(genderTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 190, -1));
+
+        genderLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        genderLabel2.setText("Gender");
+        searchPanel.add(genderLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
+
+        lastNameLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lastNameLabel2.setText("Last Name");
+        searchPanel.add(lastNameLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, -1, -1));
+
+        lastNameTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lastNameTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameTextField2KeyTyped(evt);
+            }
+        });
+        searchPanel.add(lastNameTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 190, -1));
+
+        firstNameTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        firstNameTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                firstNameTextField2KeyTyped(evt);
+            }
+        });
+        searchPanel.add(firstNameTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 190, -1));
+
+        firstNameLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        firstNameLabel2.setText("First Name");
+        searchPanel.add(firstNameLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
+
+        empNumTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        empNumTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empNumTextField2ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(empNumTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 190, -1));
+
+        searchEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchEmpButton.setText("Search");
+        searchEmpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEmpButtonActionPerformed(evt);
+            }
+        });
+        searchPanel.add(searchEmpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 350, 30));
+
+        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        searchPanel.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 10, 540));
+        searchPanel.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 760, 10));
+
+        picLabel2.setPreferredSize(new java.awt.Dimension(250, 250));
+        searchPanel.add(picLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+
         jTabbedPane1.addTab("Search", searchPanel);
 
         displayPanel.setMinimumSize(new java.awt.Dimension(600, 400));
@@ -573,9 +717,19 @@ public class MainJFrame extends javax.swing.JFrame {
         editPanel.add(empNumTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 190, -1));
 
         firstNameTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        firstNameTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                firstNameTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(firstNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 190, -1));
 
         lastNameTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lastNameTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(lastNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 190, -1));
 
         genderTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1022,6 +1176,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void resetEmpButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetEmpButton1ActionPerformed
         int empNum = Integer.parseInt(currEditEmpLabel.getText().substring(18));
         EmployeeInfo e = theHT.getEmployee(empNum);
+        resetEditLabels();
         setEditFieldsToEmp(e);
     }//GEN-LAST:event_resetEmpButton1ActionPerformed
 
@@ -1102,11 +1257,12 @@ public class MainJFrame extends javax.swing.JFrame {
             int empNum = Integer.parseInt(empNumTextField1.getText());
             emp = theHT.getEmployee(empNum);
         } catch (NumberFormatException e) {}
-        
-        //jDialog1.setVisible(true);
+
         if (emp != null) {
             setEditFieldsEnabled(true);
+            resetEditLabels();
             setEditFieldsToEmp(emp);
+            currEdit = emp;
         }
         else {
             findEmpDialog.setVisible(true);
@@ -1126,7 +1282,21 @@ public class MainJFrame extends javax.swing.JFrame {
         int empNum = Integer.parseInt(currEditEmpLabel.getText().substring(18));
         theHT.removeEmployee(empNum);
         setEditFieldsEnabled(false);
+        resetEditLabels();
         empNumTextField1.setText("");
+        currEditEmpLabel.setText("Editing Employee #");
+        firstNameTextField1.setText("");
+        lastNameTextField1.setText("");
+        genderTextField1.setText("");
+        workLocTextField1.setText("");
+        deductRateTextField1.setText("");
+        fullTimeButton1.setSelected(true);
+        hourlyWageTextField1.setText("");
+        hoursWeekTextField1.setText("");
+        weeksYearTextField1.setText("");
+        yearlySalaryTextField1.setText("");
+        yearlySalaryTextField1.setText("");
+        Utils.drawDefault(picLabel1);
     }//GEN-LAST:event_removeEmpButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1172,6 +1342,54 @@ public class MainJFrame extends javax.swing.JFrame {
         currentEditPFP = null;
     }//GEN-LAST:event_removeUseDefaultPFPButtonActionPerformed
 
+    private void firstNameTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextField1KeyTyped
+        String s = firstNameTextField1.getText() + evt.getKeyChar();
+        System.out.println(s);
+        if (!currEdit.firstName.equals(s)) {
+            firstNameLabel1.setText("First Name*");
+        } else {
+            firstNameLabel1.setText("First Name");
+        }
+    }//GEN-LAST:event_firstNameTextField1KeyTyped
+
+    private void lastNameTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextField1KeyTyped
+        String s = lastNameTextField1.getText() + evt.getKeyChar();
+        System.out.println(s);
+        if (!currEdit.lastName.equals(s)) {
+            lastNameLabel1.setText("Last Name*");
+        } else {
+            lastNameLabel1.setText("Last Name");
+        }
+    }//GEN-LAST:event_lastNameTextField1KeyTyped
+
+    private void hoursWeekTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoursWeekTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hoursWeekTextField2ActionPerformed
+
+    private void hourlyWageTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hourlyWageTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hourlyWageTextField2ActionPerformed
+
+    private void workLocTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workLocTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_workLocTextField2ActionPerformed
+
+    private void lastNameTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextField2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTextField2KeyTyped
+
+    private void firstNameTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextField2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameTextField2KeyTyped
+
+    private void empNumTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empNumTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empNumTextField2ActionPerformed
+
+    private void searchEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmpButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchEmpButtonActionPerformed
+ 
     private void setEditFieldsEnabled(boolean enabled) {
         firstNameLabel1.setEnabled(enabled);
         firstNameTextField1.setEnabled(enabled);
@@ -1207,6 +1425,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private void setEditFieldsToEmp(EmployeeInfo e) {
         currEditEmpLabel.setText("Editing Employee #" + e.empNum);
+        
         firstNameTextField1.setText(e.firstName);
         lastNameTextField1.setText(e.lastName);
         genderTextField1.setText(e.gender);
@@ -1243,6 +1462,18 @@ public class MainJFrame extends javax.swing.JFrame {
         }
     }
     
+    private void resetEditLabels() {
+        firstNameLabel1.setText("First Name");
+        lastNameLabel1.setText("Last Name");
+        genderLabel1.setText("Gender");
+        workLocLabel1.setText("Work Location");
+        deductRateLabel1.setText("Deduct Rate");
+        yearlySalaryLabel1.setText("Yearly Salary");
+        hourlyWageLabel1.setText("Hourly Wage");
+        hoursWeekLabel1.setText("Hours / Week");
+        weeksYearLabel1.setText("Weeks / Year");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1269,15 +1500,19 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem darkPurpleCheckBox;
     private javax.swing.JLabel deductRateLabel;
     private javax.swing.JLabel deductRateLabel1;
+    private javax.swing.JLabel deductRateLabel2;
     private javax.swing.JTextField deductRateTextField;
     private javax.swing.JTextField deductRateTextField1;
+    private javax.swing.JTextField deductRateTextField2;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JButton displayTableButton;
     private javax.swing.JPanel editPanel;
     private javax.swing.JLabel empNumLabel;
     private javax.swing.JLabel empNumLabel1;
+    private javax.swing.JLabel empNumLabel2;
     private javax.swing.JTextField empNumTextField;
     private javax.swing.JTextField empNumTextField1;
+    private javax.swing.JTextField empNumTextField2;
     private javax.swing.ButtonGroup empTypeButtonGroup;
     private javax.swing.ButtonGroup empTypeButtonGroup1;
     private javax.swing.JDialog fileDialog;
@@ -1285,22 +1520,30 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JDialog findEmpDialog;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel firstNameLabel1;
+    private javax.swing.JLabel firstNameLabel2;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JTextField firstNameTextField1;
+    private javax.swing.JTextField firstNameTextField2;
     private javax.swing.JRadioButton fullTimeButton;
     private javax.swing.JRadioButton fullTimeButton1;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel genderLabel1;
+    private javax.swing.JLabel genderLabel2;
     private javax.swing.JTextField genderTextField;
     private javax.swing.JTextField genderTextField1;
+    private javax.swing.JTextField genderTextField2;
     private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JLabel hourlyWageLabel1;
+    private javax.swing.JLabel hourlyWageLabel2;
     private javax.swing.JTextField hourlyWageTextField;
     private javax.swing.JTextField hourlyWageTextField1;
+    private javax.swing.JTextField hourlyWageTextField2;
     private javax.swing.JLabel hoursWeekLabel;
     private javax.swing.JLabel hoursWeekLabel1;
+    private javax.swing.JLabel hoursWeekLabel2;
     private javax.swing.JTextField hoursWeekTextField;
     private javax.swing.JTextField hoursWeekTextField1;
+    private javax.swing.JTextField hoursWeekTextField2;
     private javax.swing.JCheckBoxMenuItem intellijCheckBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1311,6 +1554,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1323,8 +1568,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JLabel lastNameLabel1;
+    private javax.swing.JLabel lastNameLabel2;
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JTextField lastNameTextField1;
+    private javax.swing.JTextField lastNameTextField2;
     private javax.swing.JCheckBoxMenuItem lightOwlCheckBox;
     private javax.swing.JButton loadButton;
     private javax.swing.JPanel menuPanel;
@@ -1336,6 +1583,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton partTimeButton1;
     private javax.swing.JLabel picLabel;
     private javax.swing.JLabel picLabel1;
+    private javax.swing.JLabel picLabel2;
     private javax.swing.JButton removeEmpButton;
     private javax.swing.JButton removeUseDefaultPFPButton;
     private javax.swing.JButton resetEmpButton;
@@ -1346,6 +1594,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton saveChangesButton1;
     private javax.swing.JLabel saveLoadStatus;
     private javax.swing.JButton searchEditEmpButton;
+    private javax.swing.JButton searchEmpButton;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JCheckBoxMenuItem solarizedLightCheckBox;
     private javax.swing.ButtonGroup themeButtonGroup;
@@ -1355,15 +1604,21 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton uploadNewPFPButton;
     private javax.swing.JLabel weeksYearLabel;
     private javax.swing.JLabel weeksYearLabel1;
+    private javax.swing.JLabel weeksYearLabel2;
     private javax.swing.JTextField weeksYearTextField;
     private javax.swing.JTextField weeksYearTextField1;
+    private javax.swing.JTextField weeksYearTextField2;
     private javax.swing.JLabel workLocLabel;
     private javax.swing.JLabel workLocLabel1;
+    private javax.swing.JLabel workLocLabel2;
     private javax.swing.JTextField workLocTextField;
     private javax.swing.JTextField workLocTextField1;
+    private javax.swing.JTextField workLocTextField2;
     private javax.swing.JLabel yearlySalaryLabel;
     private javax.swing.JLabel yearlySalaryLabel1;
+    private javax.swing.JLabel yearlySalaryLabel2;
     private javax.swing.JTextField yearlySalaryTextField;
     private javax.swing.JTextField yearlySalaryTextField1;
+    private javax.swing.JTextField yearlySalaryTextField2;
     // End of variables declaration//GEN-END:variables
 }
