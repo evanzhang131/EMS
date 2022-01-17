@@ -250,7 +250,6 @@ public class MainJFrame extends javax.swing.JFrame {
         yearlySalaryLabel1 = new javax.swing.JLabel();
         picLabel1 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
         uploadNewPFPButton = new javax.swing.JButton();
         removeUseDefaultPFPButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -794,27 +793,27 @@ public class MainJFrame extends javax.swing.JFrame {
         empNumLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         empNumLabel1.setText("Employee Number");
         empNumLabel1.setToolTipText("");
-        editPanel.add(empNumLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        editPanel.add(empNumLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         firstNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         firstNameLabel1.setText("First Name");
-        editPanel.add(firstNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        editPanel.add(firstNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         lastNameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lastNameLabel1.setText("Last Name");
-        editPanel.add(lastNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        editPanel.add(lastNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
         genderLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         genderLabel1.setText("Gender");
-        editPanel.add(genderLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
+        editPanel.add(genderLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
 
         workLocLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         workLocLabel1.setText("Work Location");
-        editPanel.add(workLocLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+        editPanel.add(workLocLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
 
         deductRateLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         deductRateLabel1.setText("Deduct Rate");
-        editPanel.add(deductRateLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, -1));
+        editPanel.add(deductRateLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
 
         empNumTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         empNumTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -822,7 +821,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 empNumTextField1ActionPerformed(evt);
             }
         });
-        editPanel.add(empNumTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 190, -1));
+        editPanel.add(empNumTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 190, -1));
 
         firstNameTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         firstNameTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -830,7 +829,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 firstNameTextField1KeyTyped(evt);
             }
         });
-        editPanel.add(firstNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 190, -1));
+        editPanel.add(firstNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 190, -1));
 
         lastNameTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lastNameTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -838,7 +837,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 lastNameTextField1KeyTyped(evt);
             }
         });
-        editPanel.add(lastNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 190, -1));
+        editPanel.add(lastNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 190, -1));
 
         genderTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         genderTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -846,7 +845,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 genderTextField1KeyTyped(evt);
             }
         });
-        editPanel.add(genderTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 190, -1));
+        editPanel.add(genderTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 190, -1));
 
         workLocTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         workLocTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -859,7 +858,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 workLocTextField1KeyTyped(evt);
             }
         });
-        editPanel.add(workLocTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 190, -1));
+        editPanel.add(workLocTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 190, -1));
 
         deductRateTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         deductRateTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -867,10 +866,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 deductRateTextField1KeyTyped(evt);
             }
         });
-        editPanel.add(deductRateTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 190, -1));
+        editPanel.add(deductRateTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 190, -1));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        editPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 10, 470));
+        editPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 10, 480));
 
         empTypeButtonGroup1.add(partTimeButton1);
         partTimeButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -942,7 +941,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         editPanel.add(resetEmpButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, 200, 40));
-        editPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 350, 10));
+        editPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, 10));
 
         searchEditEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         searchEditEmpButton.setText("Search");
@@ -951,7 +950,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 searchEditEmpButtonActionPerformed(evt);
             }
         });
-        editPanel.add(searchEditEmpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 30));
+        editPanel.add(searchEditEmpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 350, 30));
         editPanel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 760, 10));
 
         removeEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -966,7 +965,7 @@ public class MainJFrame extends javax.swing.JFrame {
         currEditEmpLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         currEditEmpLabel.setText("Editing Employee #");
         currEditEmpLabel.setToolTipText("");
-        editPanel.add(currEditEmpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        editPanel.add(currEditEmpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         yearlySalaryTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         editPanel.add(yearlySalaryTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 190, -1));
@@ -976,9 +975,8 @@ public class MainJFrame extends javax.swing.JFrame {
         editPanel.add(yearlySalaryLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         picLabel1.setPreferredSize(new java.awt.Dimension(250, 250));
-        editPanel.add(picLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
-        editPanel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 350, 10));
-        editPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 760, 10));
+        editPanel.add(picLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        editPanel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 350, 10));
 
         uploadNewPFPButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         uploadNewPFPButton.setText("Upload New Profile Picture");
@@ -987,7 +985,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 uploadNewPFPButtonActionPerformed(evt);
             }
         });
-        editPanel.add(uploadNewPFPButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 350, -1));
+        editPanel.add(uploadNewPFPButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 350, 40));
 
         removeUseDefaultPFPButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         removeUseDefaultPFPButton.setText("Remove & Use Default");
@@ -996,7 +994,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 removeUseDefaultPFPButtonActionPerformed(evt);
             }
         });
-        editPanel.add(removeUseDefaultPFPButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 350, -1));
+        editPanel.add(removeUseDefaultPFPButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 448, 350, 40));
 
         jTabbedPane1.addTab("Edit", editPanel);
 
@@ -1965,7 +1963,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lastNameLabel;
