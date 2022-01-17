@@ -1207,9 +1207,13 @@ public class MainJFrame extends javax.swing.JFrame {
         int empNum = 0;
         try {
             empNum = Integer.parseInt(empNumTextField.getText());
-            if (!theHT.validNumber(empNum)) {
+            if (empNum < 0) {
+                errors += "*Employee number must be a positive integer\n";
+            }
+            else if (!theHT.validNumber(empNum)) {
                 errors += "*Employee number already taken\n";
             }
+            
         } catch (NumberFormatException e) {
             errors += "*Employee number must be an integer\n";
         }
@@ -1236,6 +1240,9 @@ public class MainJFrame extends javax.swing.JFrame {
             double hWage = 0, hoursWeek = 0, weeksYear = 0;
             try {
                 hWage = Double.parseDouble(hourlyWageTextField.getText());
+                if (hWage <= 0) {
+                    errors += "*Hourly wage must be above 0.0\n";
+                }
             } catch (NumberFormatException e) {
                 errors += "*Hourly wage must be a valid number\n";
             }
@@ -1260,6 +1267,9 @@ public class MainJFrame extends javax.swing.JFrame {
             double ySalary = 0;
             try {
                 ySalary = Double.parseDouble(yearlySalaryTextField.getText());
+                if (ySalary <= 0) {
+                    errors += "*Yearly salary must be above 0.0\n";
+                }
             } catch (NumberFormatException e) {
                 errors += "*Yearly salary must be a valid number";
             }
@@ -1358,6 +1368,9 @@ public class MainJFrame extends javax.swing.JFrame {
             double hWage = 0, hoursWeek = 0, weeksYear = 0;
             try {
                 hWage = Double.parseDouble(hourlyWageTextField1.getText());
+                if (hWage <= 0) {
+                    errors += "*Hourly wage must be above 0.0\n";
+                }
             } catch (NumberFormatException e) {
                 errors += "*Hourly wage must be a valid number\n";
             }
@@ -1382,6 +1395,9 @@ public class MainJFrame extends javax.swing.JFrame {
             double ySalary = 0;
             try {
                 ySalary = Double.parseDouble(yearlySalaryTextField1.getText());
+                if (ySalary <= 0) {
+                    errors += "*Yearly salary must be above 0.0\n";
+                }
             } catch (NumberFormatException e) {
                 errors += "*Yearly salary must be a valid number";
             }
