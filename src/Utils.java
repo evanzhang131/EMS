@@ -26,6 +26,10 @@ public class Utils {
     private static final File DEFAULT = join(IMAGES_DIR, "default.jpg");
     private static final File ICON = join(IMAGES_DIR, "icon.png");
     
+    public static void clearData() {
+        writeHashTable(new MyHashTable(10));
+    }
+    
     public static BufferedImage getIcon() {
         try {
             BufferedImage img = ImageIO.read(ICON);
@@ -38,6 +42,8 @@ public class Utils {
     public static void initFiles() {
         if (!EMS_DIR.exists()) {
             EMS_DIR.mkdirs();
+        }
+        if (!EMS.exists()) {
             try {
                 EMS.createNewFile();
             } catch (IOException e) {}
@@ -47,22 +53,45 @@ public class Utils {
         }
     }
     
-    public static void drawImage(JLabel label, File path) {
+    public static void drawImage(JLabel label, File path, int size) {
         if (path == null) {
-            drawDefault(label);
+            drawDefault(label, size);
             return;
         }
         try {
             BufferedImage img = ImageIO.read(path);
-            Image icon = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            Image icon = img.getScaledInstance(size, size, Image.SCALE_SMOOTH);
             label.setIcon(new ImageIcon(icon));
         } catch (IOException e) {
-            drawDefault(label);
+            drawDefault(label, size);
         }
     }
     
-    public static void drawDefault(JLabel label) {
-        drawImage(label, DEFAULT);
+    public static ImageIcon getImageIcon(File path) {
+        if (path == null) {
+            try {
+                BufferedImage img = ImageIO.read(DEFAULT);
+                Image icon = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+                return new ImageIcon(icon);
+            } catch (IOException e) {
+                return null;
+            }
+        }
+        try {
+            BufferedImage img = ImageIO.read(path);
+            Image icon = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            return new ImageIcon(icon);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+    
+    public static File getDefaultPath() {
+        return DEFAULT;
+    }
+    
+    public static void drawDefault(JLabel label, int size) {
+        drawImage(label, DEFAULT, size);
     }
     
     private static File join(File first, String... others) {

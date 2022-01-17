@@ -40,22 +40,29 @@ public class MyHashTable implements Serializable {
         return(keyValue % buckets.length);
     }
 
-
+    public boolean validNumber(int num) {
+        int hash = calcBucket(num);
+        for (EmployeeInfo e : buckets[hash]) {
+            if (e.empNum == num) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public boolean addEmployee(EmployeeInfo theEmployee) {
-
-        // Add the employee to the hash table.  Return true if employee is added successfully,
-        // return false otherwise.
-
         if (theEmployee == null) {
-            return(false);
+            return false;
         }
         else {
-            int targetBucket = calcBucket(theEmployee.getEmpNum());
+            int hash = calcBucket(theEmployee.getEmpNum());
             // Add the employee to the ArrayList for the targetBucket.
-            boolean addStatus = buckets[targetBucket].add(theEmployee);
+            for (EmployeeInfo e : buckets[hash]) {
+                if (e.empNum == theEmployee.empNum) return false;
+            }
+            buckets[hash].add(theEmployee);
             numInHashTable++;
-            return addStatus;
+            return true;
         }
 
     } // end AddEmployee
