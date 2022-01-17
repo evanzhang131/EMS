@@ -53,6 +53,24 @@ public class Utils {
         }
     }
     
+    public static void drawBottom(JLabel label, String color) {
+        String s = "bottom_" + color + ".png";
+        try {
+            BufferedImage img = ImageIO.read(join(IMAGES_DIR, s));
+            Image icon = img.getScaledInstance(800, 220, Image.SCALE_SMOOTH);
+            label.setIcon(new ImageIcon(icon));
+        } catch (IOException e) {}
+    }
+    
+    public static void drawTop(JLabel label, String color) {
+        String s = "top_" + color + ".png";
+        try {
+            BufferedImage img = ImageIO.read(join(IMAGES_DIR, s));
+            Image icon = img.getScaledInstance(800, 220, Image.SCALE_SMOOTH);
+            label.setIcon(new ImageIcon(icon));
+        } catch (IOException e) {}
+    }
+    
     public static void drawImage(JLabel label, File path, int size) {
         if (path == null) {
             drawDefault(label, size);
