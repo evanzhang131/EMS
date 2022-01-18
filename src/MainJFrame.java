@@ -911,6 +911,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 hourlyWageTextField1ActionPerformed(evt);
             }
         });
+        hourlyWageTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                hourlyWageTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(hourlyWageTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 190, -1));
 
         hoursWeekTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -919,9 +924,19 @@ public class MainJFrame extends javax.swing.JFrame {
                 hoursWeekTextField1ActionPerformed(evt);
             }
         });
+        hoursWeekTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                hoursWeekTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(hoursWeekTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 190, -1));
 
         weeksYearTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        weeksYearTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                weeksYearTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(weeksYearTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 190, -1));
 
         saveChangesButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -968,6 +983,11 @@ public class MainJFrame extends javax.swing.JFrame {
         editPanel.add(currEditEmpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         yearlySalaryTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        yearlySalaryTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                yearlySalaryTextField1KeyTyped(evt);
+            }
+        });
         editPanel.add(yearlySalaryTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 190, -1));
 
         yearlySalaryLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1310,6 +1330,20 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_empNumTextField1ActionPerformed
 
     private void partTimeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partTimeButton1ActionPerformed
+        if (currEdit instanceof FTE) {
+            fullTimeButton1.setText("Full-Time");
+            partTimeButton1.setText("Part-Time*");
+            hourlyWageLabel1.setText("Hourly Wage*");
+            hoursWeekLabel1.setText("Hours / Week*");
+            weeksYearLabel1.setText("Weeks / Year*");
+        } else if (currEdit instanceof PTE) {
+            fullTimeButton1.setText("Full-Time");
+            partTimeButton1.setText("Part-Time");
+            if (yearlySalaryTextField1.getText().isBlank()) {
+                yearlySalaryTextField1.setText("");
+                yearlySalaryLabel1.setText("Yearly Salary");
+            }
+        }
         hourlyWageTextField1.setEnabled(true);
         hourlyWageLabel1.setEnabled(true);
         hoursWeekTextField1.setEnabled(true);
@@ -1321,6 +1355,26 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_partTimeButton1ActionPerformed
 
     private void fullTimeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullTimeButton1ActionPerformed
+        if (currEdit instanceof FTE) {
+            fullTimeButton1.setText("Full-Time");
+            partTimeButton1.setText("Part-Time");
+            if (hourlyWageTextField1.getText().isBlank()) {
+                hourlyWageTextField1.setText("");
+                hourlyWageLabel1.setText("Hourly Wage");
+            }
+            if (hoursWeekTextField1.getText().isBlank()) {
+                hoursWeekTextField1.setText("");
+                hoursWeekLabel1.setText("Hours / Week");
+            }
+            if (weeksYearTextField1.getText().isBlank()) {
+                weeksYearTextField1.setText("");
+                weeksYearLabel1.setText("Weeks / Year");
+            }
+        } else if (currEdit instanceof PTE) {
+            fullTimeButton1.setText("Full-Time*");
+            partTimeButton1.setText("Part-Time");
+            yearlySalaryLabel1.setText("Yearly Salary*");
+        }
         hourlyWageTextField1.setEnabled(false);
         hourlyWageLabel1.setEnabled(false);
         hoursWeekTextField1.setEnabled(false);
@@ -1411,6 +1465,7 @@ public class MainJFrame extends javax.swing.JFrame {
             theHT.removeEmployee(empNum);
             theHT.addEmployee(emp);
             resetEditLabels();
+            setEditFieldsToEmp(emp);
             updateHT();
         }
     }//GEN-LAST:event_saveChangesButton1ActionPerformed
@@ -1604,11 +1659,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void removeUseDefaultPFPButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUseDefaultPFPButtonActionPerformed
         Utils.drawDefault(picLabel1, 250);
-        currentEditPFP = Utils.getDefaultPath();;
+        currentEditPFP = Utils.getDefaultPath();
     }//GEN-LAST:event_removeUseDefaultPFPButtonActionPerformed
 
     private void firstNameTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextField1KeyTyped
         String s = firstNameTextField1.getText() + evt.getKeyChar();
+        if (evt.getKeyChar() == 8) s = firstNameTextField1.getText();
         if (!currEdit.firstName.equals(s)) {
             firstNameLabel1.setText("First Name*");
         } else {
@@ -1618,6 +1674,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void lastNameTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextField1KeyTyped
         String s = lastNameTextField1.getText() + evt.getKeyChar();
+        if (evt.getKeyChar() == 8) s = lastNameTextField1.getText();
         if (!currEdit.lastName.equals(s)) {
             lastNameLabel1.setText("Last Name*");
         } else {
@@ -1689,12 +1746,32 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private void clearDataItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearDataItemActionPerformed
         // Clears Data
-        // open dialog
         Utils.clearData();
+        theHT = new MyHashTable(10);
+        setSearchFieldsVisible(false);
+        empNumTextField_search.setText("");
+        display();
+        setEditFieldsEnabled(false);
+        resetEditLabels();
+        empNumTextField1.setText("");
+        currEditEmpLabel.setText("Editing Employee #");
+        firstNameTextField1.setText("");
+        lastNameTextField1.setText("");
+        genderTextField1.setText("");
+        workLocTextField1.setText("");
+        deductRateTextField1.setText("");
+        fullTimeButton1.setSelected(true);
+        hourlyWageTextField1.setText("");
+        hoursWeekTextField1.setText("");
+        weeksYearTextField1.setText("");
+        yearlySalaryTextField1.setText("");
+        yearlySalaryTextField1.setText("");
+        Utils.drawDefault(picLabel1, 250);
     }//GEN-LAST:event_clearDataItemActionPerformed
 
     private void genderTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_genderTextField1KeyTyped
         String s = genderTextField1.getText() + evt.getKeyChar();
+        if (evt.getKeyChar() == 8) s = genderTextField1.getText();
         if (!currEdit.gender.equals(s)) {
             genderLabel1.setText("Gender*");
         } else {
@@ -1704,6 +1781,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void workLocTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_workLocTextField1KeyTyped
         String s = workLocTextField1.getText() + evt.getKeyChar();
+        if (evt.getKeyChar() == 8) s = workLocTextField1.getText();
         if (!currEdit.workLoc.equals(s)) {
             workLocLabel1.setText("Work Location*");
         } else {
@@ -1775,6 +1853,66 @@ public class MainJFrame extends javax.swing.JFrame {
         confirmSave = false;
         confirmSaveDialog.setVisible(false);
     }//GEN-LAST:event_cancelSaveButtonActionPerformed
+
+    private void yearlySalaryTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yearlySalaryTextField1KeyTyped
+        if (currEdit instanceof PTE) return;
+        String s = yearlySalaryTextField1.getText() + evt.getKeyChar();
+        try {
+            double d = Double.parseDouble(s);
+            if (((FTE) currEdit).yearlySalary != d) {
+                yearlySalaryLabel1.setText("Yearly Salary*");
+            } else {
+                yearlySalaryLabel1.setText("Yearly Salary");
+            }
+        } catch (NumberFormatException e) {
+            yearlySalaryLabel1.setText("Yearly Salary*");
+        }
+    }//GEN-LAST:event_yearlySalaryTextField1KeyTyped
+
+    private void hourlyWageTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hourlyWageTextField1KeyTyped
+        if (currEdit instanceof FTE) return;
+        String s = hourlyWageTextField1.getText() + evt.getKeyChar();
+        try {
+            double d = Double.parseDouble(s);
+            if (((PTE) currEdit).hourlyWage != d) {
+                hourlyWageLabel1.setText("Hourly Wage*");
+            } else {
+                hourlyWageLabel1.setText("Hourly Wage");
+            }
+        } catch (NumberFormatException e) {
+            hourlyWageLabel1.setText("Hourly Wage*");
+        }
+    }//GEN-LAST:event_hourlyWageTextField1KeyTyped
+
+    private void hoursWeekTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hoursWeekTextField1KeyTyped
+        if (currEdit instanceof FTE) return;
+        String s = hoursWeekTextField1.getText() + evt.getKeyChar();
+        try {
+            double d = Double.parseDouble(s);
+            if (((PTE) currEdit).hoursPerWeek != d) {
+                hoursWeekLabel1.setText("Hours / Week*");
+            } else {
+                hoursWeekLabel1.setText("Hours / Week");
+            }
+        } catch (NumberFormatException e) {
+            hoursWeekLabel1.setText("Hours / Week*");
+        }
+    }//GEN-LAST:event_hoursWeekTextField1KeyTyped
+
+    private void weeksYearTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weeksYearTextField1KeyTyped
+        if (currEdit instanceof FTE) return;
+        String s = weeksYearTextField1.getText() + evt.getKeyChar();
+        try {
+            double d = Double.parseDouble(s);
+            if (((PTE) currEdit).weeksPerYear != d) {
+                weeksYearLabel1.setText("Weeks / Year*");
+            } else {
+                weeksYearLabel1.setText("Weeks / Year");
+            }
+        } catch (NumberFormatException e) {
+            weeksYearLabel1.setText("Weeks / Year*");
+        }
+    }//GEN-LAST:event_weeksYearTextField1KeyTyped
  
     private void setEditFieldsEnabled(boolean enabled) {
         firstNameLabel1.setEnabled(enabled);
@@ -1830,6 +1968,7 @@ public class MainJFrame extends javax.swing.JFrame {
             weeksYearLabel1.setEnabled(true);
             yearlySalaryTextField1.setEnabled(false);
             yearlySalaryLabel1.setEnabled(false);
+            yearlySalaryTextField1.setText("");
             hourlyWageTextField1.setText(Double.toString(p.hourlyWage));
             hoursWeekTextField1.setText(Double.toString(p.hoursPerWeek));
             weeksYearTextField1.setText(Double.toString(p.weeksPerYear));
@@ -1846,6 +1985,9 @@ public class MainJFrame extends javax.swing.JFrame {
             yearlySalaryTextField1.setEnabled(true);
             yearlySalaryLabel1.setEnabled(true);
             yearlySalaryTextField1.setText(Double.toString(f.yearlySalary));
+            hourlyWageTextField1.setText("");
+            hoursWeekTextField1.setText("");
+            weeksYearTextField1.setText("");
         }
     }
     
@@ -1855,6 +1997,8 @@ public class MainJFrame extends javax.swing.JFrame {
         genderLabel1.setText("Gender");
         workLocLabel1.setText("Work Location");
         deductRateLabel1.setText("Deduct Rate");
+        fullTimeButton1.setText("Full-Time");
+        partTimeButton1.setText("Part-Time");
         yearlySalaryLabel1.setText("Yearly Salary");
         hourlyWageLabel1.setText("Hourly Wage");
         hoursWeekLabel1.setText("Hours / Week");
